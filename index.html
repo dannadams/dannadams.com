@@ -3,101 +3,70 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>Dann Adams</title>
-<meta name="description" content="Dann Adams — music, photography, and projects.">
+<title>Dann Adams | Colorado | Music, Photography &amp; Projects</title>
+<meta name="description" content="Dann Adams of Colorado. Home base for Dann's music, photography, and projects.">
+<link rel="canonical" href="https://dannadams.com/">
+<meta name="author" content="Dann Adams">
+
+<!-- How the page looks when shared on Facebook, Slack, texts, etc. -->
+<meta property="og:type" content="profile">
+<meta property="og:title" content="Dann Adams | Colorado">
+<meta property="og:description" content="Music, photography, and projects by Dann Adams.">
+<meta property="og:url" content="https://dannadams.com/">
+<meta property="og:image" content="https://dannadams.com/photo.jpg">
+<meta property="profile:first_name" content="Dann">
+<meta property="profile:last_name" content="Adams">
+<meta name="twitter:card" content="summary">
+
+<!-- Tells Google who this page is about -->
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "Person",
+  "name": "Dann Adams",
+  "givenName": "Dann",
+  "familyName": "Adams",
+  "url": "https://dannadams.com/",
+  "image": "https://dannadams.com/photo.jpg",
+  "address": {
+    "@type": "PostalAddress",
+    "addressRegion": "CO",
+    "addressCountry": "US"
+  },
+  "homeLocation": { "@type": "Place", "name": "Colorado" },
+  "sameAs": []
+}
+</script>
+
+<link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'><circle cx='32' cy='32' r='32' fill='%237a9301'/><text x='32' y='42' font-size='28' font-family='Georgia,serif' text-anchor='middle' fill='white'>DA</text></svg>">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,600&family=Inter:wght@400;500&display=swap" rel="stylesheet">
-<style>
-  :root {
-    --bg: #121410;
-    --card: #1b1e17;
-    --text: #f0f2ea;
-    --muted: #a3a895;
-    --accent: #a6c51c;
-    --line: #2b3024;
-  }
-  * { box-sizing: border-box; margin: 0; padding: 0; }
-  body {
-    min-height: 100vh;
-    background: radial-gradient(ellipse at top, #222a12 0%, var(--bg) 60%);
-    color: var(--text);
-    font-family: "Inter", system-ui, sans-serif;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    padding: 48px 16px;
-  }
-  main { width: 100%; max-width: 440px; text-align: center; }
-
-  .photo {
-    width: 180px; height: 180px;
-    border-radius: 50%;
-    margin: 0 auto 24px;
-    border: 4px solid var(--accent);
-    box-shadow: 0 8px 32px rgba(122, 147, 1, 0.35);
-    overflow: hidden;
-    background: var(--card);
-    display: flex; align-items: center; justify-content: center;
-    font-family: "Fraunces", serif; font-size: 48px; color: var(--accent);
-  }
-  .photo img { width: 100%; height: 100%; object-fit: cover; display: block; }
-
-  h1 { font-family: "Fraunces", serif; font-weight: 600; font-size: 40px; letter-spacing: -0.5px; }
-  .tagline { color: var(--accent); font-size: 15px; margin-top: 6px; letter-spacing: 1px; text-transform: uppercase; }
-  .bio { color: var(--muted); font-size: 16px; line-height: 1.6; margin: 20px 0 32px; }
-
-  nav { display: flex; flex-direction: column; gap: 12px; }
-  nav a {
-    display: block;
-    padding: 16px 20px;
-    background: var(--card);
-    border: 1px solid var(--line);
-    border-radius: 12px;
-    color: var(--text);
-    text-decoration: none;
-    font-weight: 500;
-    transition: border-color .15s, transform .15s;
-  }
-  nav a:hover { border-color: var(--accent); transform: translateY(-2px); }
-  nav a span { color: var(--muted); font-weight: 400; font-size: 14px; display: block; margin-top: 2px; }
-
-  footer { margin-top: 40px; color: var(--muted); font-size: 13px; }
-  footer a { color: var(--muted); }
-</style>
+<link rel="stylesheet" href="/styles.css">
 </head>
 <body>
 <main>
 
-  <!-- ===== YOUR PHOTO =====
-       Upload a picture named me.jpg next to this file.
-       If the picture is missing, your initials "DA" show instead. -->
   <div class="photo">
-    <img src="me_1.jpg" alt="Photo of Dann Adams" onerror="this.remove(); this.parentNode && (this.parentNode.textContent='DA');">
+    <img src="/photo.jpg" alt="Dann Adams" width="180" height="180">
   </div>
 
   <h1>Dann Adams</h1>
-
-  <!-- ===== CHANGE THIS: short tagline ===== -->
   <p class="tagline">Music · Photography · Projects</p>
 
-  <!-- ===== CHANGE THIS: one or two sentences about you ===== -->
-  <p class="bio">A couple of sentences about who you are and what you make go here.</p>
+  <!-- CHANGE THIS any time: a sentence or two about you -->
+  <p class="bio">Hi, I'm Dann, based in Colorado. This is home base for my music, my photography, and the projects I'm working on.</p>
 
-  <!-- ===== YOUR LINKS =====
-       Replace each href="#" with the real web address.
-       Delete any block you don't want. Copy a block to add another. -->
-  <nav>
-    <a href="#">Music<span>Listen to my songs</span></a>
-    <a href="#">Photography<span>See my photos</span></a>
-    <a href="#">Projects<span>Things I'm building</span></a>
+  <nav class="links" aria-label="Sections">
+    <a href="/music">Music</a>
+    <a href="/photography">Photography</a>
+    <a href="/projects">Projects</a>
+    <a href="/contact">Contact</a>
   </nav>
 
-  <!-- ===== CHANGE THIS: your email address (both places) ===== -->
-  <footer>
-    <a href="mailto:you@dannadams.com">you@dannadams.com</a>
-  </footer>
+  <footer>© <span id="y">2026</span> Dann Adams · Colorado</footer>
 
 </main>
+<script>document.getElementById('y').textContent = new Date().getFullYear();</script>
 </body>
 </html>

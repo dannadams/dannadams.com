@@ -1,0 +1,89 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Contact | Dann Adams</title>
+<meta name="description" content="Get in touch with Dann Adams of Colorado.">
+<link rel="canonical" href="https://dannadams.com/contact">
+<meta property="og:title" content="Contact | Dann Adams">
+<meta property="og:description" content="Get in touch with Dann Adams of Colorado.">
+<meta property="og:url" content="https://dannadams.com/contact">
+<meta property="og:image" content="https://dannadams.com/photo.jpg">
+<link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'><circle cx='32' cy='32' r='32' fill='%237a9301'/><text x='32' y='42' font-size='28' font-family='Georgia,serif' text-anchor='middle' fill='white'>DA</text></svg>">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,600&family=Inter:wght@400;500&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="/styles.css">
+</head>
+<body>
+<main>
+  <a class="back" href="/">← Dann Adams</a>
+  <h1>Contact</h1>
+  <p class="soon">Send me a note and I'll get back to you.</p>
+
+  <form id="contact" action="https://api.web3forms.com/submit" method="POST">
+    <!-- Web3Forms access key goes here. It's safe to be public. -->
+    <input type="hidden" name="access_key" value="YOUR_ACCESS_KEY_HERE">
+    <input type="hidden" name="subject" value="New message from dannadams.com">
+    <input type="hidden" name="from_name" value="dannadams.com">
+    <input type="checkbox" name="botcheck" class="hp" tabindex="-1" autocomplete="off">
+
+    <label>Your name
+      <input type="text" name="name" required autocomplete="name">
+    </label>
+    <label>Your email
+      <input type="email" name="email" required autocomplete="email">
+    </label>
+    <label>Message
+      <textarea name="message" required></textarea>
+    </label>
+
+    <div class="h-captcha" data-captcha="true"></div>
+
+    <button type="submit">Send</button>
+    <p class="status" id="status" role="status"></p>
+  </form>
+
+  <footer>© 2026 Dann Adams · Colorado</footer>
+</main>
+<script src="https://web3forms.com/client/script.js" async defer></script>
+<script>
+const form = document.getElementById('contact');
+const status = document.getElementById('status');
+const btn = form.querySelector('button');
+form.addEventListener('submit', async (e) => {
+  e.preventDefault();
+  status.className = 'status'; status.textContent = '';
+  if (form.access_key.value === 'YOUR_ACCESS_KEY_HERE') {
+    status.className = 'status err';
+    status.textContent = 'The contact form is almost ready. Please check back soon.';
+    return;
+  }
+  const data = new FormData(form);
+  if (!data.get('h-captcha-response')) {
+    status.className = 'status err';
+    status.textContent = 'Please complete the "I am human" check first.';
+    return;
+  }
+  btn.disabled = true; btn.textContent = 'Sending...';
+  try {
+    const res = await fetch('https://api.web3forms.com/submit', { method: 'POST', body: data });
+    const json = await res.json();
+    if (json.success) {
+      form.reset();
+      if (window.hcaptcha) hcaptcha.reset();
+      status.className = 'status ok';
+      status.textContent = 'Thanks! Your message was sent.';
+    } else {
+      throw new Error(json.message || 'Something went wrong');
+    }
+  } catch (err) {
+    status.className = 'status err';
+    status.textContent = 'Sorry, that did not send. Please try again in a minute.';
+  }
+  btn.disabled = false; btn.textContent = 'Send';
+});
+</script>
+</body>
+</html>
